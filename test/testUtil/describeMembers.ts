@@ -4,7 +4,7 @@ export function describeMembers<T extends { constructor: Function }, C extends {
     const instance = factory()
 
     describe(instance.constructor.name, () => {
-        const members = [...Object.getOwnPropertyNames(instance), ...Object.getOwnPropertyNames(Object.getPrototypeOf(instance))]
+        const members = new Set([...Object.getOwnPropertyNames(instance), ...Object.getOwnPropertyNames(Object.getPrototypeOf(instance)), ...Object.keys(callbacks)])
         for (const key of members) {
             const name = "." + key
             const callback = (callbacks as any)[key] as Callback<T>
