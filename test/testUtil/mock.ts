@@ -1,0 +1,1 @@
+export declare function mockInstance<T>(): T
