@@ -7,7 +7,7 @@ export function tracker(name: string) {
             this.count++
         },
         check(amount = 1) {
-            expect(this.count).to.equal(amount, `Tracker "${name}" has not beed triggered the required amount of times`)
+            expect(this.count).to.equal(amount, `Tracker "${name}" has not beed triggered the required amount of times; ${this.count} != ${amount}`)
         }
     }
 }
